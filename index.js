@@ -64,6 +64,7 @@ let boxes = document.getElementById("boxes");
     // Fetching movies by user (getting data from the api)
     async function get_sear_api() {
         let movie_name = document.querySelector("#movie_name").value;
+        const sear_api = `https://online-movie-database.p.rapidapi.com/v2/search?searchTerm=${movie_name}&first=20`;
         const options2 = {
             method: 'GET',
             headers: {

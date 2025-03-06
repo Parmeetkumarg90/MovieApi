@@ -1,5 +1,5 @@
 // new movie api code
-let boxes = document.getElementById("boxes");
+ let boxes = document.getElementById("boxes");
     // Api links
     // Fetching popular movies (getting data from the api)
     async function get_popu_api() {
@@ -75,7 +75,6 @@ let boxes = document.getElementById("boxes");
 
         try {
             const response2 = await fetch(sear_api, options2);
-            throw new Error(`${response2.status}`)
             var data2 = await response2.json();
             console.log(data2.data.mainSearch.edges);
             show2(data2.data.mainSearch.edges);

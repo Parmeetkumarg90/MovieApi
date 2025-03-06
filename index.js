@@ -76,7 +76,7 @@ let boxes = document.getElementById("boxes");
             const response2 = await fetch(sear_api, options2);
             throw new Error(`${response2.status}`)
             var data2 = await response2.json();
-            //console.log(data2.data.mainSearch.edges);
+            console.log(data2.data.mainSearch.edges);
             show2(data2.data.mainSearch.edges);
         } catch (error) {
             boxes.value = "Error while fetching data. " + error.message + "\nTry Refreshing Page";

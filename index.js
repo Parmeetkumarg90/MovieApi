@@ -1,5 +1,5 @@
 // new movie api code
- let boxes = document.getElementById("boxes");
+    let boxes = document.getElementById("boxes");
     // Api links
     // Fetching popular movies (getting data from the api)
     async function get_popu_api() {
@@ -61,10 +61,15 @@
             boxes.appendChild(box);
         });
     }
-    // Fetching movies by user (getting data from the api)
+    // Fetching movies by user (getting data from the api)    
+    let movie_name = document.querySelector("#movie_name");
+    movie_name.addEventListener('keydown',(event)=>{
+        if(event.key === 'Enter'){
+            get_sear_api();
+        }
+    });
     async function get_sear_api() {
-        let movie_name = document.querySelector("#movie_name").value;
-        const sear_api = `https://online-movie-database.p.rapidapi.com/v2/search?searchTerm=${movie_name}&first=20`;
+        const sear_api = `https://online-movie-database.p.rapidapi.com/v2/search?searchTerm=${movie_name.value}&first=20`;
         const options2 = {
             method: 'GET',
             headers: {
@@ -76,7 +81,7 @@
         try {
             const response2 = await fetch(sear_api, options2);
             var data2 = await response2.json();
-            console.log(data2.data.mainSearch.edges);
+            //console.log(data2.data.mainSearch.edges);
             show2(data2.data.mainSearch.edges);
         } catch (error) {
             boxes.value = "Error while fetching data. " + error.message + "\nTry Refreshing Page";
